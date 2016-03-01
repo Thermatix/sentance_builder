@@ -1,3 +1,3 @@
-module SentanceBuilder
+module SentenceBuilder
   VERSION = "0.1.0"
 end

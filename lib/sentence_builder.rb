@@ -7,11 +7,11 @@ module SBuilder
     noun: "$noun"
   }
 
-  Sentance = Struct.new("Sentance",:sentance, :words, :verbs, :adjectives, :nouns)
+  Sentence = Struct.new("Sentence",:sentence, :words, :verbs, :adjectives, :nouns)
   class << self
 
-    def fill_sentance sentance,words
-      sentance.words.map do |word|
+    def fill_sentence sentence,words
+      sentence.words.map do |word|
         case word
         when Matches[:verb]
           words[:verbs][rand(0...words[:verbs].length)]
@@ -25,20 +25,20 @@ module SBuilder
       end.join(' ')
     end
 
-    def generate_sentance input
-      sentance = Sentance.new
+    def generate_sentence input
+      sentence = Sentence.new
 
-      sentance.sentance = input
-      sentance.words = sentance.sentance.split(Regexp.new(" |\n")) - ['']
-      sentance.verbs = []
-      sentance.adjectives = []
-      sentance.nouns = []
-      Matches.each_with_object(sentance.words) do |(match,matcher),words|
+      sentence.sentence = input
+      sentence.words = sentence.sentence.split(Regexp.new(" |\n")) - ['']
+      sentence.verbs = []
+      sentence.adjectives = []
+      sentence.nouns = []
+      Matches.each_with_object(sentence.words) do |(match,matcher),words|
         words.each_with_index do |word,index|
-          sentance.send("#{match}s") << index if matcher == word
+          sentence.send("#{match}s") << index if matcher == word
         end
       end
-      sentance
+      sentence
     end
   end
 
