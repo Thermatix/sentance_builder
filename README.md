@@ -14,6 +14,24 @@ Create a sentence:
 sentence = SBuilder.generate_sentence("Hi, My $verb is $noun and I like $adjective $noun")
 ```
 
+Some Words:
+
+```ruby
+words = {
+  verbs: %w{shoulder donkey pingus},
+  nouns: %w{trump Bingtown london berk},
+  adjectives: %w{brown gold poopy stinky}
+}
+
+```
+
+and then just fill the sentance:
+
+```ruby
+puts SBuilder.fill_sentence(sentence,words)
+# => Hi, My donkey is trump and I like poopy trump
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
