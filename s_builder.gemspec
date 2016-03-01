@@ -1,11 +1,11 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'sentence_builder/version'
+require 's_builder/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "sentence_builder"
-  spec.version       = SentenceBuilder::VERSION
+  spec.name          = "s_builder"
+  spec.version       = SBuilder::VERSION
   spec.authors       = ["Martin Becker"]
   spec.email         = ["mbeckerwork@gmail.com"]
 
